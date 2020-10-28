@@ -1,19 +1,19 @@
 const http = require('http')
 
 var routes = {
-    '/': function index (request, response) {
+    '/': function index(request, response) {
         response.writeHead(200);
         response.end('Bravo !');
     },
-    '/info': function foo (request, response) {
+    '/info': function foo(request, response) {
         response.writeHead(200);
         response.end('Bravo ! tu es sur la route "info"');
     },
-    '/contact': function foo (request, response) {
+    '/contact': function foo(request, response) {
         response.writeHead(200);
         response.end('Bravo ! tu es sur la route "contact"');
     },
-    '/blog': function foo (request, response) {
+    '/blog': function foo(request, response) {
         response.writeHead(200);
         response.end('Bravo ! tu es sur la route "blog"');
     }
@@ -28,6 +28,6 @@ http.createServer(function (request, response) {
     response.writeHead(404);
     response.end(http.STATUS_CODES[404]);
 
-}).listen(7777,()=>{
-    console.log(`Le serveur tourne sur :http://localhost:7777/`)
+}).listen(process.env.PORT || 8080, () => {
+    console.log('Le serveur tourne sur : ' + process.env.PORT || 8080);
 });
